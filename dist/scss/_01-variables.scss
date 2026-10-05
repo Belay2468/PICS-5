@@ -1,0 +1,50 @@
+// ============================================================
+// PhilTrack — Design Tokens  (replaces template yellow palette)
+// ============================================================
+
+// --- Brand colours ---
+$clr-primary:        #16a34a;
+$clr-primary-dark:   #15803d;
+$clr-primary-darker: #14532d;
+$clr-primary-light:  #dcfce7;
+$clr-primary-50:     #f0fdf4;
+
+$clr-dark:   #1f2937;
+$clr-light:  #ffffff;
+$clr-muted:  #6b7280;
+$clr-faint:  #7c8592;
+$clr-border: #e5e7eb;
+$clr-bg:     #f4f6f5;
+$clr-surface:#ffffff;
+
+// --- Semantic colours ---
+$clr-danger:     #dc2626;
+$clr-danger-bg:  #fee2e2;
+$clr-warning:    #d97706;
+$clr-warning-bg: #fef3c7;
+$clr-success:    #16a34a;
+$clr-success-bg: #dcfce7;
+$clr-info:       #2563eb;
+$clr-info-bg:    #dbeafe;
+
+// --- Breakpoints ---
+$break-sm: 480px;
+$break-md: 760px;
+$break-lg: 980px;
+$break-xl: 1080px;
+
+// --- Typography ---
+$ff-primary: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$fs-base:    14.5px;
+
+// --- Shape & shadow ---
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+
+$shadow-sm: 0 1px 2px rgba(16, 24, 16, .06);
+$shadow-md: 0 4px 14px rgba(16, 24, 16, .08);
+$shadow-lg: 0 12px 32px rgba(16, 24, 16, .14);
+
+// --- Layout ---
+$sidebar-w: 248px;

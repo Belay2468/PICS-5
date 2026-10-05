@@ -1,0 +1,59 @@
+// ============================================================
+// _user-requests.scss
+// Page-specific styles for the My Requests page
+// ============================================================
+
+// ---- Page title row ----------------------------------------
+.requests-page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  h3  { font-size: 16px; }
+  .back-link { font-size: 13px; color: $clr-muted; }
+}
+
+// ---- Status indicator: coloured left border on table row ----
+.req-row-pending  { border-left: 3px solid $clr-warning; td:first-child { padding-left: 11px; } }
+.req-row-approved { border-left: 3px solid $clr-success; td:first-child { padding-left: 11px; } }
+.req-row-rejected { border-left: 3px solid $clr-danger;  td:first-child { padding-left: 11px; } opacity: .75; }
+
+// ---- Status dot + label (alternative to badge) -------------
+.status-dot-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  &.pending  { color: $clr-warning; .dot { background: $clr-warning; } }
+  &.approved { color: $clr-success; .dot { background: $clr-success; } }
+  &.rejected { color: $clr-danger;  .dot { background: $clr-danger;  } }
+}
+
+// ---- Item + code two-line cell -----------------------------
+.req-item-cell {
+  .item-name { font-weight: 600; font-size: 13px; }
+  .item-code {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: $clr-faint;
+    margin-top: 2px;
+  }
+}
+
+// ---- "No requests yet" state --------------------------------
+
+
+// ---- Processed-date cell: lighter than requested-date cell --
+.date-processed-cell { color: $clr-faint; font-size: 12px; }
+.date-requested-cell { color: $clr-muted; font-size: 12px; }

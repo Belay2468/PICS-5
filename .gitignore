@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Dependencies / build
+node_modules/
+vendor/
+
+# Local env / secrets
+.env
+*.log
+
+# Runtime data
+dist/php/storage/*.json

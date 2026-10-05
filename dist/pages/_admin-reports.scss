@@ -1,0 +1,375 @@
+// ============================================================
+// _admin-reports.scss — Reports & Analytics hub + 4 report types
+// ============================================================
+
+// ---- Hub: report type cards ----------------------------------
+.report-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+
+  @media (max-width: $break-sm) { grid-template-columns: 1fr; }
+}
+
+.report-type-card {
+  @include card;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: .2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+    border-color: $clr-primary;
+  }
+
+  .rt-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    background: $clr-primary-light;
+    color: $clr-primary-dark;
+  }
+
+  .rt-title { font-size: 14.5px; font-weight: 700; color: #1f2937; }
+  .rt-desc  { font-size: 12px; color: $clr-muted; line-height: 1.5; }
+}
+
+// ---- Filter toolbar (shared shape across all 4 report pages) -
+.report-toolbar {
+  @include card;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .form-row-wrap {
+    display: flex;
+    align-items: end;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    .form-group { min-width: 170px; }
+
+    // A bare button (no label above it, unlike its sibling
+    // label+control form-groups) needs to be nudged down to land on
+    // the same baseline as the 42px-tall selects/inputs next to it.
+    > .form-group:has(> .btn:only-child) {
+      min-width: 0;
+
+      .btn {
+        height: 42px;
+        padding: 0 20px;
+        margin-top: 25px; // = label line-height (19px) + its 6px margin
+      }
+    }
+  }
+
+  .stock-mode-toggle {
+    display: flex;
+    gap: 10px;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 14px;
+      border: 1px solid $clr-border;
+      border-radius: $radius-sm;
+      font-size: 13px;
+      cursor: pointer;
+      transition: .15s ease;
+
+      &:has(input:checked) {
+        border-color: $clr-primary;
+        background: $clr-primary-50;
+        color: $clr-primary-dark;
+        font-weight: 600;
+      }
+
+      input { accent-color: $clr-primary; }
+    }
+  }
+}
+
+.report-toolbar-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+// ---- Report header (title + back/print actions) --------------
+.report-view-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+
+  h3 { font-size: 15px; }
+  .cell-muted { font-size: 12.5px; }
+}
+
+// ---- Printable letterhead (screen: hidden: print: visible) ---
+.report-letterhead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid $clr-primary-darker;
+
+  &-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &-text {
+    flex: 1;
+    .org   { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: $clr-muted; }
+    .title { font-size: 17px; font-weight: 800; color: $clr-primary-darker; }
+    .sub   { font-size: 11.5px; color: $clr-muted; margin-top: 2px; }
+  }
+
+  &-meta { font-size: 10.5px; color: $clr-muted; white-space: nowrap; }
+}
+
+// ---- Category-grouped report tables ---------------------------
+.report-category-group {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+  margin-bottom: 22px;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.report-category-heading {
+  background: $clr-primary-50;
+  color: $clr-primary-darker;
+  border-left: 4px solid $clr-primary;
+  padding: 8px 14px;
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.report-table {
+  th, td { font-size: 12.5px; }
+
+  .blank-line {
+    display: inline-block;
+    width: 70px;
+    border-bottom: 1px solid #999;
+  }
+}
+
+.monthly-table {
+  .col-num { width: 34px; text-align: center; }
+}
+
+.monthly-signoff {
+  margin-top: 34px;
+
+  .sign-block-left {
+    text-align: left;
+    flex: 0 0 260px;
+  }
+}
+
+// ---- Requisition & Issue Slip builder --------------------------
+.slip-builder-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+
+  @media (max-width: $break-lg) { grid-template-columns: 1fr; }
+}
+
+.slip-item-picker {
+  .picker-list {
+    max-height: 420px;
+    overflow-y: auto;
+    border: 1px solid $clr-border;
+    border-radius: $radius-sm;
+
+    // Without this, a hovered first/last row's background square
+    // corners would poke past the container's rounded corners.
+    > .picker-row:first-child { border-top-left-radius: $radius-sm; border-top-right-radius: $radius-sm; }
+    > .picker-row:last-child  { border-bottom-left-radius: $radius-sm; border-bottom-right-radius: $radius-sm; }
+  }
+
+  .picker-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid $clr-border;
+    font-size: 13px;
+    transition: background .15s ease;
+
+    &:last-child { border-bottom: none; }
+    &:hover { background: $clr-primary-50; }
+
+    .picker-name { flex: 1; font-weight: 600; }
+    .picker-meta { font-size: 11.5px; color: $clr-muted; }
+
+    .btn { flex-shrink: 0; }
+  }
+}
+
+.slip-cart {
+  .cart-empty {
+    padding: 30px 16px;
+    text-align: center;
+    color: $clr-muted;
+    font-size: 13px;
+  }
+
+  .cart-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid $clr-border;
+
+    &:last-child { border-bottom: none; }
+
+    .cart-name { flex: 1; font-size: 13px; font-weight: 600; }
+    .cart-unit { font-size: 11.5px; color: $clr-muted; width: 46px; }
+
+    input[type="number"] {
+      width: 72px;
+      height: 34px;
+      border: 1px solid $clr-border;
+      border-radius: $radius-sm;
+      padding: 0 8px;
+      font-size: 13px;
+    }
+  }
+}
+
+.slip-header-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+
+  @media (max-width: $break-sm) { grid-template-columns: 1fr; }
+}
+
+.slip-header-fields-ris {
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: $break-md) { grid-template-columns: 1fr 1fr; }
+  @media (max-width: $break-sm) { grid-template-columns: 1fr; }
+}
+
+// ---- RIS-style top band (Office – End User / RIS No. / Date) --
+.ris-topband {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $clr-border;
+
+  &-side { display: flex; gap: 24px; flex-wrap: wrap; }
+  &-secondary { border-bottom: none; padding-bottom: 4px; margin-bottom: 16px; }
+}
+
+.ris-label { font-size: 11.5px; font-weight: 700; color: $clr-muted; text-transform: uppercase; letter-spacing: .03em; margin-right: 5px; }
+.ris-value { font-size: 13.5px; font-weight: 600; color: #1f2937; }
+
+// ---- RIS-style two-tier table (REQUISITION | ISSUANCE) --------
+.ris-table {
+  .ris-group-row th {
+    background: $clr-primary-50;
+    color: $clr-primary-darker;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-size: 11.5px;
+    border-bottom: 1px solid $clr-border;
+  }
+
+  .ris-group-row th:first-child { border-right: 2px solid $clr-primary; }
+
+  tbody td:nth-child(3) { border-right: 2px solid $clr-border; }
+
+  .ris-blank-cell {
+    color: transparent; // reserves the cell for hand-written entry
+  }
+}
+
+.ris-issuance-note { margin-top: 8px; font-size: 11.5px; }
+
+// ---- Signature blocks (kept together across a page break) -----
+.sign-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 46px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+
+  @media (max-width: $break-sm) { flex-direction: column; gap: 28px; }
+}
+
+.sign-block {
+  flex: 1;
+  text-align: center;
+
+  .sign-line {
+    border-top: 1px solid #333;
+    margin-top: 42px;
+    padding-top: 6px;
+    font-size: 11.5px;
+  }
+
+  .sign-role { font-size: 10.5px; color: $clr-muted; }
+}
+
+// ---- Monthly report totals footnote ----------------------------
+.report-footnote {
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: $clr-bg;
+  border-radius: $radius-sm;
+  font-size: 11.5px;
+  color: $clr-muted;
+  line-height: 1.6;
+}
+
+// ---- Print-specific refinements --------------------------------
+@media print {
+  .report-letterhead { display: flex !important; }
+
+  .report-table th {
+    background: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .report-category-heading {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  table { break-inside: auto; }
+  thead  { display: table-header-group; }
+  tr     { break-inside: avoid; page-break-inside: avoid; }
+}

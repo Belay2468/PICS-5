@@ -1,0 +1,74 @@
+// ============================================================
+// Utilities
+// ============================================================
+
+// Text
+.text-muted   { color: $clr-muted; }
+.text-warning { color: $clr-warning; }
+.text-center  { text-align: center; }
+.cell-strong  { font-weight: 600; }
+.cell-muted   { color: $clr-muted; }
+
+// Flex helpers
+.flex          { display: flex; }
+.flex-wrap     { flex-wrap: wrap; }
+.items-center  { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-8         { gap: 8px; }
+
+// Spacing
+.mt-0  { margin-top: 0; }
+.mb-0  { margin-bottom: 0; }
+.w-full { width: 100%; }
+
+// Badges (global)
+.badge          { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.badge-success  { @include badge($clr-success, $clr-success-bg); }
+.badge-warning  { @include badge($clr-warning, $clr-warning-bg); }
+.badge-danger   { @include badge($clr-danger, $clr-danger-bg); }
+.badge-info     { @include badge($clr-info, $clr-info-bg); }
+.badge-muted    { background: $clr-bg; color: $clr-muted; display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+
+// Alerts
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px; border-radius: $radius-sm; font-size: 13px; margin-bottom: 18px; border: 1px solid transparent;
+
+  i { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+  span { flex: 1; }
+
+  &-success { background: $clr-success-bg; color: $clr-primary-darker; border-color: #bbf7d0; }
+  &-danger  { background: $clr-danger-bg; color: #991b1b; border-color: #fecaca; }
+  &-info    { background: $clr-info-bg; color: #1e3a8a; border-color: #bfdbfe; }
+}
+
+// Print
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+
+  // System navigation must never appear in a printed report.
+  .sidebar,
+  .topbar,
+  .sidebar-backdrop,
+  .user-topbar {
+    display: none !important;
+  }
+
+  .main-area { width: 100% !important; }
+  .content   { padding: 0 !important; }
+  .user-shell { padding-top: 0 !important; }
+
+  .panel {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  @page { size: auto; margin: 14mm 12mm; }
+}
+
+// Print-only letterhead — hidden on screen, shown only inside @media print
+// via the .report-print rules in _admin-reports.scss.
+.print-only { display: none; }

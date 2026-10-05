@@ -1,0 +1,524 @@
+// ============================================================
+// _cards.scss — stat-card, panel, item-card, category-card
+// ============================================================
+
+// ---- Stat card (dashboard KPIs) ----------------------------
+.stat-card {
+  @include card;
+
+  min-height: 135px;
+  padding: 22px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 16px;
+  transition: .25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+  }
+
+  .stat-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: $clr-muted;
+    margin-bottom: 10px;
+  }
+
+  .stat-value {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: $clr-muted;
+  }
+
+  .stat-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    flex-shrink: 0;
+
+    &.ic-green {
+      background: $clr-success-bg;
+      color: $clr-success;
+    }
+
+    &.ic-blue {
+      background: $clr-info-bg;
+      color: $clr-info;
+    }
+
+    &.ic-amber {
+      background: $clr-warning-bg;
+      color: $clr-warning;
+    }
+
+    &.ic-red {
+      background: $clr-danger-bg;
+      color: $clr-danger;
+    }
+  }
+}
+
+
+// ---- Panel (content container) -----------------------------
+.panel {
+  @include card;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    h3 { font-size: 15px; }
+  }
+}
+
+
+.users-panel-head {
+  margin-bottom: 18px;
+
+  .panel-subtitle {
+    margin-top: 2px;
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  .users-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .form-control {
+      width: 170px;
+    }
+  }
+}
+
+// .users-panel-head itself already wraps (it's a .panel-head), so this
+// only matters once .users-filter is on its own row and still too
+// narrow for two 170px selects side by side.
+@media (max-width: 420px) {
+  .users-filter .form-control {
+    width: 100%;
+  }
+}
+
+// ---- Item card (user category browsing) --------------------
+.item-card {
+
+    display:flex;
+
+    align-items:stretch;
+
+    gap:16px;
+
+    height:260px;
+
+    padding:14px;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:14px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+    transition:.25s;
+
+    &:hover{
+
+        transform:translateY(-3px);
+
+        box-shadow:0 14px 28px rgba(0,0,0,.10);
+
+    }
+
+}
+
+
+.item-image{
+
+    width:120px;
+
+    height:110px;
+
+    align-self:center;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    img{
+
+        width:100%;
+
+        height:100%;
+
+        object-fit:contain;
+
+        padding:8px;
+
+    }
+
+    i{
+
+        font-size:45px;
+
+        color:$clr-primary;
+
+    }
+
+}
+
+
+.item-info{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.item-info h3{
+
+    font-size:18px;
+
+    margin-bottom:6px;
+
+    color:#111827;
+
+    display:-webkit-box;
+
+    line-clamp:2;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+
+}
+
+
+.item-code{
+
+    color:#6b7280;
+
+    margin-bottom:12px;
+
+}
+
+
+.item-qty-label{
+
+    font-size:13px;
+
+    color:#6b7280;
+
+}
+
+
+.item-qty{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:10px;
+
+    span{
+
+        font-size:18px;
+
+        color:#6b7280;
+
+        font-weight:500;
+
+    }
+
+}
+
+
+.item-info .badge{
+
+    width:max-content;
+
+    margin-bottom:12px;
+
+}
+
+
+.item-info .btn{
+
+    width:160px;
+
+    margin-top:auto;
+
+}
+
+// Below ~480px the fixed 120px image + gap leaves too little room for
+// .item-info's content — the 160px button alone would overflow it.
+// Stack the card instead of squeezing everything into a sliver column.
+@media (max-width: 480px) {
+    .item-card {
+        flex-direction: column;
+        align-items: stretch;
+        height: auto;
+    }
+
+    .item-image {
+        width: 100%;
+        height: 160px;
+    }
+
+    .item-info .btn {
+        width: 100%;
+    }
+}
+
+// ---- Category card (user home) -----------------------------
+.category-card{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px;
+
+    min-height:110px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+
+    box-shadow:0 4px 14px rgba(16,24,16,.08);
+
+    transition:.25s ease;
+
+    &:hover{
+        background:linear-gradient(135deg,#15803d,#16a34a);
+        
+        transform: translateY(-4px);
+
+        box-shadow:0 10px 20px rgba(0,0,0,.12);
+
+        text-decoration:none;
+
+        color:#fff;
+
+    }
+
+    &::before{
+
+        content:"";
+
+        position:absolute;
+
+        inset:0;
+
+        background:
+            radial-gradient(circle at 10% 15%, rgba(255,255,255,.08) 8px, transparent 9px),
+            radial-gradient(circle at 28% 70%, rgba(255,255,255,.07) 16px, transparent 17px),
+            radial-gradient(circle at 55% 35%, rgba(255,255,255,.05) 12px, transparent 13px),
+            radial-gradient(circle at 82% 18%, rgba(255,255,255,.07) 18px, transparent 19px),
+            radial-gradient(circle at 92% 78%, rgba(255,255,255,.05) 10px, transparent 11px),
+            radial-gradient(circle at 65% 90%, rgba(255,255,255,.08) 20px, transparent 21px),
+            radial-gradient(circle at 38% 8%, rgba(255,255,255,.05) 14px, transparent 15px);
+
+    }
+
+    &::after{
+
+        content:"";
+
+        position:absolute;
+
+        top:-60px;
+
+        right:-60px;
+
+        width:180px;
+
+        height:180px;
+
+        border-radius:50%;
+
+        border:2px solid rgba(255,255,255,.08);
+
+    }
+
+    > *{
+
+        position:relative;
+
+        z-index:1;
+
+    }
+
+}
+
+.category-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:$clr-primary;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+    flex-shrink:0;
+
+}
+
+.category-info{
+
+    flex:1;
+
+}
+
+.category-info h2{
+
+    font-size:16px;
+
+    margin-bottom:6px;
+
+    font-weight:700;
+
+}
+
+.category-info p{
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    opacity:.95;
+
+    margin-bottom:10px;
+
+}
+
+.category-count{
+
+    display:inline-block;
+
+    padding:5px 10px;
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:999px;
+
+    font-size:11px;
+
+}
+
+.category-arrow{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:14px;
+
+    flex-shrink:0;
+
+}
+
+.thumb{
+    height:110px;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    margin-bottom:12px;
+
+    img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    i{
+        font-size:42px;
+        color:$clr-primary;
+    }
+}

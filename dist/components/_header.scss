@@ -1,0 +1,509 @@
+// ============================================================
+// _header.scss — Admin topbar + User topbar
+// ============================================================
+
+// ---- Admin Topbar -------------------------------------------
+.topbar {
+
+  height:73px;
+
+  background:$clr-surface;
+
+  border-bottom:1px solid $clr-border;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:flex-end;
+
+  padding:0 24px;
+
+  position:sticky;
+
+  top:0;
+
+  z-index:10;
+
+
+
+  .topbar-right {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+  }
+
+
+
+  .bell {
+
+    position:relative;
+
+    width:38px;
+
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:$clr-muted;
+
+    font-size:17px;
+
+    transition:.2s ease;
+
+
+
+    &:hover {
+
+      background:$clr-primary-50;
+
+      color:$clr-primary-dark;
+
+    }
+
+
+
+    .dot {
+
+      position:absolute;
+
+      top:5px;
+
+      right:6px;
+
+      width:9px;
+
+      height:9px;
+
+      background:$clr-danger;
+
+      border-radius:50%;
+
+      border:2px solid #fff;
+
+    }
+
+  }
+
+
+
+  .user-chip {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:6px 12px 6px 6px;
+
+    border:1px solid $clr-border;
+
+    border-radius:999px;
+
+    background:$clr-surface;
+
+    transition:.2s ease;
+
+
+
+
+
+    .avatar {
+
+      width:38px;
+
+      height:38px;
+
+      border-radius:50%;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      background:$clr-primary;
+
+      color:#fff;
+
+      font-size:13px;
+
+      font-weight:700;
+
+    }
+
+
+
+    .meta {
+
+      line-height:1.2;
+
+
+
+      .name {
+
+        font-size:13px;
+
+        font-weight:600;
+
+        color:#1f2937;
+
+      }
+
+
+
+      .role {
+
+        font-size:11.5px;
+
+        color:$clr-muted;
+
+        margin-top:2px;
+
+      }
+
+    }
+
+  }
+
+}
+
+// ============================================================
+// _user-header.scss
+// ============================================================
+
+.user-shell {
+    min-height: 100vh;
+    padding-top: 74px;
+
+}
+
+// ============================================================
+// Top Header
+// ============================================================
+
+.user-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    height: 74px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 36px;
+
+    background: linear-gradient(
+        90deg,
+        #15803d 0%,
+        #16a34a 100%
+    );
+
+    color: #fff;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,.15);
+}
+
+// ============================================================
+// Brand
+// ============================================================
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    text-decoration: none;
+    color: #fff;
+
+    .brand-logo {
+        width: 44px;
+        height: 44px;
+
+        object-fit: contain;
+
+        flex-shrink: 0;
+    }
+
+    div:last-child {
+        display: flex;
+        flex-direction: column;
+
+        font-size: 18px;
+        font-weight: 700;
+
+        line-height: 1.1;
+    }
+
+    small {
+        margin-top: 4px;
+
+        font-size: 12px;
+        font-weight: 500;
+
+        color: rgba(255,255,255,.82);
+    }
+}
+
+// ============================================================
+// Right Side
+// ============================================================
+
+.user-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+// ============================================================
+// Navigation
+// ============================================================
+
+.logout-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    text-decoration: none;
+
+    color: rgba(255,255,255,.95);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: .25s;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    &:hover {
+        background: rgba(255,255,255,.12);
+    }
+
+    i {
+        font-size: 15px;
+    }
+}
+
+// ============================================================
+// Divider
+// ============================================================
+
+.divider {
+    width: 1px;
+    height: 26px;
+
+    background: rgba(255,255,255,.25);
+}
+
+// ============================================================
+// Clock
+// ============================================================
+
+.clock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.12);
+
+    border: 1px solid rgba(255,255,255,.20);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #fff;
+
+    white-space: nowrap;
+
+    i {
+        font-size: 15px;
+    }
+        #liveClock{
+        display:flex;
+        flex-direction:column;
+        gap:2px;
+    }
+
+    .clock-time{
+        font-size:14px;
+        font-weight:700;
+        line-height:1;
+    }
+
+    .clock-info{
+        display:flex;
+        align-items:center;
+        gap:8px;
+
+        font-size:11px;
+        opacity:.9;
+    }
+
+    .clock-divider{
+        width:1px;
+        height:12px;
+        background:rgba(255,255,255,.4);
+    }
+
+    .clock-date,
+    .clock-day{
+        line-height:1;
+    }
+}
+
+// ============================================================
+// Generic avatar fallback — kept bare (not chip-scoped) because
+// admin/users.php reuses this class directly on table rows, with
+// only a size/font-size override, and relies on this base look.
+// ============================================================
+
+.avatar {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: $clr-light;
+    color: $clr-primary-dark;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 15px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,.12);
+}
+
+// ============================================================
+// User (user-topbar avatar chip — explicitly scoped so it can
+// never collide with the admin topbar's own .user-chip above)
+// ============================================================
+
+.user-topbar .user-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    // .avatar inherits its look from the generic .avatar rule above —
+    // it already resolves to the right colours for this context.
+
+    .meta {
+        display: flex;
+        flex-direction: column;
+
+        .name {
+            color: $clr-light;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .role {
+            margin-top: 2px;
+
+            color: rgba(255,255,255,.80);
+
+            font-size: 12px;
+        }
+    }
+}
+
+// ============================================================
+// Responsive
+// ============================================================
+
+@media (max-width: 992px) {
+
+    .user-topbar {
+        padding: 0 20px;
+    }
+
+    .user-topbar .user-chip .meta {
+        display: none;
+    }
+
+    .clock {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .user-topbar {
+        height: auto;
+
+        padding: 15px 18px;
+
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .user-shell {
+        padding-top: 135px;
+    }
+
+    .user-topbar-right {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+}
+
+.ico {
+    width: 22px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: .75rem;
+    font-size: 1rem;
+}
+
+.search-box .ico,
+.bell {
+    color: #64748b;
+}
+
+.nav-link i,
+.bell i {
+    transition: .2s ease;
+}
+
+.nav-link:hover i {
+    transform: scale(1.1);
+}
+
+// ==========================
+// RESPONSIVE — admin topbar makes room for the sidebar toggle
+// ==========================
+@media (max-width: 900px) {
+    .topbar {
+        justify-content: space-between;
+        padding: 0 16px;
+    }
+}

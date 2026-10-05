@@ -1,0 +1,105 @@
+// ============================================================
+// _admin-dashboard.scss
+// ============================================================
+.page-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    margin-bottom:28px;
+
+    flex-wrap:wrap;
+
+
+
+    h2{
+
+        font-size:28px;
+
+        font-weight:700;
+
+        color:#111827;
+
+        margin-bottom:4px;
+
+    }
+
+
+
+    .desc{
+
+        font-size:14px;
+
+        color:#6b7280;
+
+    }
+
+
+
+    .page-actions{
+
+        display:flex;
+
+        gap:10px;
+
+    }
+
+}
+.quick-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.request-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    padding:20px;
+}
+
+.request-item{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.request-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.request-name{
+    font-weight:600;
+    color:#111827;
+}
+
+.request-count{
+    font-size:13px;
+    color:#16a34a;
+    font-weight:600;
+}
+
+.request-bar{
+    height:8px;
+    background:#ecfdf5;
+    border-radius:999px;
+    overflow:hidden;
+
+    span{
+        display:block;
+        height:100%;
+        border-radius:inherit;
+        background:linear-gradient(90deg,#22c55e,#16a34a);
+    }
+}

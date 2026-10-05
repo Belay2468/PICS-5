@@ -1,0 +1,97 @@
+// ============================================================
+// _charts.scss — pure CSS bar chart + conic donut
+// ============================================================
+
+// Bar chart
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 160px;
+  padding-top: 22px; // room for the value label above the tallest bar
+
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    position: relative;
+  }
+
+  .bar-value {
+    font-size: 11px;
+    font-weight: 700;
+    color: $clr-primary-dark;
+    margin-bottom: 6px;
+  }
+
+  .bar {
+    width: 56%;
+    min-width: 18px;
+    border-radius: 6px 6px 2px 2px;
+    // A subtle top-to-bottom tone shift reads as gentle depth without
+    // becoming a showy decorative gradient.
+    background: linear-gradient(180deg, #22c55e 0%, $clr-primary-dark 100%);
+    transition: opacity .15s ease;
+
+    &:hover { opacity: .85; }
+  }
+
+  .bar-label { margin-top: 8px; font-size: 11px; color: $clr-muted; }
+}
+
+// Shown instead of the bar chart when there's genuinely no data yet —
+// a flat row of near-invisible minimum-height bars reads as broken,
+// not as "no data".
+.chart-empty {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $clr-muted;
+  font-size: 13px;
+}
+
+// Legend
+.legend      { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; .pct { margin-left: auto; font-weight: 700; color: $clr-muted; } }
+.legend-dot  { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+// Donut (conic-gradient ring, with a centre total readout)
+.donut-wrap { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+.donut {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  // Cuts the solid pie into an actual ring by masking the centre with
+  // the panel's own background colour — without this the centre label
+  // added below would sit directly on top of coloured wedges.
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 24px;
+    border-radius: 50%;
+    background: $clr-surface;
+    z-index: 0;
+  }
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+}
+
+.donut-total       { font-size: 20px; font-weight: 800; color: #1f2937; }
+.donut-total-label { font-size: 10px; color: $clr-muted; text-transform: uppercase; letter-spacing: .04em; margin-top: 2px; }

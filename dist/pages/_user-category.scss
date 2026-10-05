@@ -1,0 +1,298 @@
+// ============================================================
+// _user-category.scss
+// Page-specific styles for the category browse page
+// ============================================================
+
+.user-content {
+    max-width: 1200px;
+    margin: 24px auto 40px;
+    padding: 0 20px;
+}
+
+
+
+
+// ---- Category banner (icon + title + description) ----------
+.category-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: $clr-surface;
+  border: 1px solid $clr-border;
+  border-radius: $radius-md;
+  margin-bottom: 20px;
+  box-shadow: $shadow-sm;
+
+  .category-icon-lg {
+    width: 56px;
+    height: 56px;
+    background: $clr-primary-light;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  h2 { font-size: 19px; margin-bottom: 3px; }
+  p  { color: $clr-muted; font-size: 13px; }
+}
+
+// ---- Item card: hover lift effect (page-level enhancement) --
+.item-card {
+  transition: box-shadow .2s ease, transform .2s ease;
+  cursor: default;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+// ---- "Out of stock" item card dim overlay ------------------
+.item-card.out-of-stock {
+  opacity: .72;
+  pointer-events: auto; // still allow "View Details"
+
+  // The image wrapper in category.php's markup is .item-image, not
+  // .thumb — this grayscale effect never fired before this fix.
+  .item-image { filter: grayscale(60%); }
+}
+
+// ---- Qty display: large number emphasis --------------------
+.item-card .qty {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+
+  small {
+    font-size: 12px;
+    font-weight: 400;
+    color: $clr-muted;
+    margin-left: 3px;
+  }
+}
+
+// ---- Item details modal: status pill in heading row ---------
+#detailsModal .modal-head {
+  background: $clr-primary-50;
+  border-radius: $radius-lg $radius-lg 0 0;
+
+  h3 { color: $clr-primary-darker; }
+
+
+  
+}
+
+#detailsModal {
+
+    .modal {
+        width: 520px;
+        max-width: 90%;
+        min-height: 350px;
+    }
+
+
+    .item-details-grid {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 18px;
+        align-items: start;
+    }
+
+
+    .item-details-left {
+        min-width: 0;
+    }
+
+
+    .form-group {
+        margin-bottom: 14px;
+
+        label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        div {
+            font-size: 14px;
+            color: #0f172a;
+        }
+    }
+
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+
+    .item-details-right {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+    .item-preview {
+        width: 220px;
+        height: 220px;
+        object-fit: contain;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+    }
+
+
+    .no-image {
+        width: 220px;
+        height: 220px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px dashed #d1d5db;
+        border-radius: 10px;
+        color: #94a3b8;
+    }
+
+}
+
+// Below this width the fixed "1fr 220px" grid and the 220px image box
+// no longer fit inside the modal's shrunk (max-width:90%) size — collapse
+// to a single column, matching the equivalent fix already in place for
+// the admin item-details modal (#viewModal, pages/_admin-inventory.scss).
+// #detailsModal .form-row is ID-scoped, so it also needs its own explicit
+// override here — it would otherwise always beat the global .form-row's
+// responsive rule regardless of viewport, since an ID selector always
+// wins over a class selector.
+@media (max-width: 760px) {
+    #detailsModal {
+        .item-details-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .item-details-right {
+            order: -1;
+            justify-content: center;
+        }
+
+        .item-preview,
+        .no-image {
+            width: 100%;
+            max-width: 220px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// ---- Request modal: item name field (disabled, greyed) ------
+#requestModal #req_item_name {
+  background: $clr-bg;
+  color: $clr-muted;
+  cursor: not-allowed;
+}
+
+// ---- Filter bar: sort select flush to right ----------------
+.category-filter-bar {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) 180px 180px auto;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 20px;
+  margin-bottom: 22px;
+
+  background: $clr-surface;
+  border: 1px solid $clr-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+
+  .search-grow {
+    width: 100%;
+  }
+
+  .form-control {
+    height: 42px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .btn {
+    height: 42px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border-radius: 10px;
+  }
+}
+
+// The fixed 250px/180px/180px/auto grid needs ~752px of content width —
+// this page has no sidebar, but still overflows below roughly tablet width.
+@media (max-width: 800px) {
+  .category-filter-bar {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+.panel {
+
+  padding: 16px 20px;
+  margin-bottom: 18px;
+
+  .flex{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  .stat-icon{
+    width:54px;
+    height:54px;
+    border-radius:14px;
+    font-size:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+  }
+
+  .category-heading{
+
+    h2{
+      margin:0 0 3px;
+      font-size:19px;
+      font-weight:700;
+      line-height:1.2;
+    }
+
+    p{
+      margin:0;
+      font-size:13px;
+      color:$clr-muted;
+      line-height:1.5;
+    }
+
+  }
+
+}
+

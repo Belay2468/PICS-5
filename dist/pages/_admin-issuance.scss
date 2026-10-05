@@ -1,0 +1,58 @@
+// ============================================================
+// _admin-issuance.scss
+// Page-specific styles for the Issuance module
+// ============================================================
+
+// ---- Pending-request row: left border urgency indicator -----
+.pending-row {
+  border-left: 3px solid $clr-warning;
+  td:first-child { padding-left: 11px; } // compensate for border
+
+  &.overdue { border-color: $clr-danger; }
+}
+
+// ---- Approve / Reject button pair --------------------------
+.issuance-actions {
+  display: inline-flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+
+  // Keep both buttons the same width for visual alignment
+  .btn { min-width: 74px; justify-content: center; }
+}
+
+// ---- Availability sub-label inside item cell ---------------
+.avail-label {
+  font-size: 11px;
+  color: $clr-faint;
+  margin-top: 2px;
+
+  &.avail-low  { color: $clr-warning; }
+  &.avail-out  { color: $clr-danger;  }
+}
+
+// ---- Manual issuance panel: top accent ---------------------
+#tab-manual .panel {
+  border-top: 3px solid $clr-primary;
+}
+
+// ---- History table: issuance-ID chip -----------------------
+.iss-id-chip {
+  font-family: 'Courier New', monospace;
+  font-size: 11.5px;
+  background: $clr-bg;
+  border: 1px solid $clr-border;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: $clr-muted;
+}
+
+// ---- Tab badge (pending count) stays in line ---------------
+.tabs .badge {
+  vertical-align: middle;
+  margin-left: 6px;
+  font-size: 10px;
+}
+
+// ---- Empty pending state -----------------------------------
+

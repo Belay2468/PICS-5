@@ -1,0 +1,124 @@
+// ============================================================
+// _modal.scss
+// ============================================================
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 18, .68);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  // Above the admin topbar (z-index:10) so it dims correctly there.
+  // Deliberately still below .user-topbar's z-index:1000 — on the
+  // user side the topbar stays visible/undimmed above the backdrop.
+  z-index: 100;
+  padding: 80px 20px 20px;
+  overflow-y: auto;
+  &.open {
+    display: flex;
+    animation: backdropIn .18s ease both;
+  }
+}
+
+.modal {
+  background: $clr-light;
+  border-radius: $radius-lg;
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  height: auto;
+  overflow-y: auto;
+  box-shadow: $shadow-lg;
+  animation: modalPop .2s ease both;
+
+  &.modal-lg { max-width: 640px; }
+
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    border-bottom: 1px solid $clr-border;
+    h3 { 
+      font-size: 15.5px;
+      color: $clr-primary-darker; 
+     }
+      background: $clr-primary-50;
+  border-radius: $radius-lg $radius-lg 0 0;
+
+
+  }
+  &-body { padding: 20px 22px; }
+  &-foot {
+    padding: 16px 22px;
+    border-top: 1px solid $clr-border;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  &-close {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: $clr-muted;
+    line-height: 1;
+  }
+}
+#requestModal {
+
+  .modal {
+    max-width:560px;
+  }
+
+}
+
+
+.details-image {
+
+    width:160px;
+
+    height:160px;
+
+    background:#f8fafc;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    img {
+
+        width:100%;
+        height:100%;
+
+        object-fit:contain;
+
+        padding:10px;
+
+    }
+
+
+    .details-placeholder {
+
+        font-size:60px;
+
+    }
+
+}
+
+
+.details-info {
+
+    .form-group {
+
+        margin-bottom:12px;
+
+    }
+
+}

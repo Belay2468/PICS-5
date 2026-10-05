@@ -1,0 +1,16 @@
+// ============================================================
+// _footer.scss — User footer + Admin sidebar brand
+// ============================================================
+
+// ---- User-side footer ---------------------------------------
+.user-footer {
+  text-align: center;
+  padding: 24px  ;
+  font-size: 11.5px;
+  color: $clr-faint;
+}
+
+// ---- Admin sidebar brand block ------------------------------
+// Consolidated into components/_sidebar.scss (.sidebar-brand lives
+// right next to the rest of the sidebar it's part of) — this used to
+// be a second, competing definition of the same selector.

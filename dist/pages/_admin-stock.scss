@@ -1,0 +1,63 @@
+// ============================================================
+// _admin-stock.scss
+// Page-specific styles for the Stock Monitoring module
+// ============================================================
+
+// ---- Dual-bar chart: issued vs received colour overrides ---
+.bar-issued   { background: $clr-primary !important; }
+.bar-received { background: $clr-info    !important; }
+
+// ---- Chart legend row (horizontal, used on this page) ------
+.chart-legend-row {
+  display: flex;
+  gap: 18px;
+  font-size: 11.5px;
+  margin-bottom: 10px;
+
+  .legend-item { @include flex-center; gap: 6px; }
+  .legend-dot  { width: 10px; height: 10px; border-radius: 3px; }
+}
+
+// ---- Inline stock-level progress bar (inside alerts table) --
+.stock-bar-wrap {
+  width: 80px;
+  height: 6px;
+  background: $clr-border;
+  border-radius: 3px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+
+  .stock-bar {
+    display: block;
+    height: 100%;
+    border-radius: 3px;
+    transition: width .35s ease;
+
+    &.ok  { background: $clr-success; }
+    &.low { background: $clr-warning; }
+    &.out { background: $clr-danger;  }
+  }
+}
+
+// ---- Priority label colours in the alerts table -------------
+.priority-critical { color: $clr-danger;  font-weight: 700; }
+.priority-medium   { color: $clr-warning; font-weight: 600; }
+.priority-low      { color: $clr-muted;   font-weight: 500; }
+
+// ---- Reorder modal: quantity input focus ring ---------------
+#restockModal input[type="number"]:focus {
+  border-color: $clr-primary;
+  box-shadow: 0 0 0 3px rgba($clr-primary, .15);
+}
+
+// ---- All-clear state (no alerts) ---------------------------
+
+
+// ---- Stat card colour overrides for this page's 3-card row --
+.stat-card .stat-value {
+  &.critical { color: $clr-danger; }
+  &.low-val  { color: $clr-warning; }
+  &.healthy  { color: $clr-success; }
+}

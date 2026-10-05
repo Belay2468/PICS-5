@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="PICS logo">
+  <!-- Badge -->
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="#16a34a"/>
+
+  <!-- Isometric box (three faces, one flat tone family — no gradients) -->
+  <polygon points="50,21 73,33.5 50,46 27,33.5" fill="#ffffff"/>
+  <polygon points="27,33.5 50,46 50,69 27,56.5" fill="#ffffff" fill-opacity=".82"/>
+  <polygon points="73,33.5 50,46 50,69 73,56.5" fill="#ffffff" fill-opacity=".64"/>
+
+  <!-- Verification badge -->
+  <circle cx="74" cy="70" r="15" fill="#ffffff" stroke="#16a34a" stroke-width="3"/>
+  <path d="M67.5 70.5 L72 75 L81 65.5" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

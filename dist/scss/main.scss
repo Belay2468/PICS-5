@@ -1,0 +1,38 @@
+// ============================================================
+// PhilTrack System — main.scss
+// Compile: sass dist/scss/main.scss dist/scss/main.css
+// ============================================================
+
+// --- Global layer (load order matters) ---
+@import "./01-variables";
+@import "./02-resets";
+@import "./03-base";
+@import "./04-mixins";
+@import "./05-grid";
+@import "./06-utilities";
+@import "./07-animations";
+
+// --- Reusable components ---
+@import "../components/sidebar";
+@import "../components/header";
+@import "../components/footer";
+@import "../components/buttons";
+@import "../components/cards";
+@import "../components/modal";
+@import "../components/table";
+@import "../components/forms";
+@import "../components/tabs";
+@import "../components/charts";
+
+// --- Page-specific styles ---
+@import "../pages/login";
+@import "../pages/admin-dashboard";
+@import "../pages/admin-inventory";
+@import "../pages/admin-issuance";
+@import "../pages/admin-stock";
+@import "../pages/admin-reports";
+@import "../pages/admin-users";
+@import "../pages/user-dashboard";
+@import "../pages/user-category";
+@import "../pages/user-search";
+@import "../pages/user-requests";

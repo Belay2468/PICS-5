@@ -1,0 +1,106 @@
+// ============================================================
+// _admin-inventory.scss
+// Page-specific styles for the Inventory List module
+// ============================================================
+
+// ---- Item-code chip (monospace pill inside table cell) ------
+.item-code-chip {
+  display: inline-block;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11.5px;
+  color: $clr-muted;
+  background: $clr-bg;
+  border: 1px solid $clr-border;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: .03em;
+}
+
+// ---- Quantity cell colour by stock level -------------------
+.qty-ok  { color: $clr-success; font-weight: 700; }
+.qty-low { color: $clr-warning; font-weight: 700; }
+.qty-out { color: $clr-danger;  font-weight: 700; }
+
+// ---- Add/Edit modal: top accent stripe ----------------------
+#itemModal .modal-head {
+  background: $clr-primary-50;
+  border-radius: $radius-lg $radius-lg 0 0;
+  border-bottom-color: $clr-primary-light;
+
+  h3 { color: $clr-primary-darker; }
+}
+
+// ---- Inline unit label next to quantity input ---------------
+.qty-unit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  input  { flex: 1; }
+  .unit-label {
+    font-size: 12px;
+    color: $clr-muted;
+    white-space: nowrap;
+  }
+}
+
+// ---- Reorder-level hint callout inside modal ----------------
+.reorder-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: $clr-warning-bg;
+  border-left: 3px solid $clr-warning;
+  border-radius: 0 $radius-sm $radius-sm 0;
+  font-size: 12px;
+  color: darken(#d97706, 10%);
+  margin-top: 6px;
+}
+
+// ---- View modal info grid ----------------------------------
+#viewModal .modal-body {
+  .form-group label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: $clr-muted;
+  }
+}
+
+
+.item-details-grid{
+    display:grid;
+    grid-template-columns:1fr 220px;
+    gap:28px;
+    align-items:start;
+}
+
+.item-preview{
+    width:100%;
+    aspect-ratio:1;
+    object-fit:cover;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:#fff;
+}
+
+.item-details-right{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+@media (max-width:760px){
+    .item-details-grid{
+        grid-template-columns:1fr;
+    }
+
+    .item-details-right{
+        order:-1;
+    }
+
+    .item-preview{
+        max-width:220px;
+    }
+}

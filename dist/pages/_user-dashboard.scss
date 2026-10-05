@@ -1,0 +1,231 @@
+// ============================================================
+// Dashboard
+// ============================================================
+
+.dashboard-page{
+    background: linear-gradient(rgba(255,255,255,.50), rgba(255,255,255,.50)),
+    url("../img/Userbg.png") center center / cover no-repeat fixed;
+
+}
+
+.dashboard-container{
+
+    max-width:980px;
+
+    margin:auto;
+
+    margin-top: 16px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+
+}
+
+
+// ============================================================
+// Hero
+// ============================================================
+
+.user-hero{
+
+    text-align:center;
+
+    margin-bottom:28px;
+
+}
+
+.user-hero h1{
+
+    font-size:26px;
+
+    color: $clr-success;
+
+    font-weight:700;
+
+    margin-bottom:5px;
+  
+  span{
+    color:#1f2937;
+  }
+
+}
+
+.hero-divider{
+
+    width:70px;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:$clr-primary;
+
+    margin:auto auto 15px;
+
+}
+
+.user-search{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:560px;
+
+    margin:auto;
+
+}
+.user-search .search-icon {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.user-search input{
+
+    width:100%;
+
+    height:46px;
+
+    border-radius:999px;
+
+    border:1px solid #d1d5db;
+
+    padding:0 65px 0 50px;
+
+    font-size:15px;
+
+    background:#fff;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+
+  &:hover{
+        border-color:$clr-primary;
+
+    box-shadow:0 8px 22px rgba(22,163,74,.15);
+
+  }
+
+}
+
+.user-search input:focus{
+
+    outline:none;
+
+    border-color:$clr-primary;
+
+        box-shadow:
+        0 0 0 4px rgba(22,163,74,.12),
+        0 8px 22px rgba(22,163,74,.18);
+
+}
+
+.user-search button{
+
+    position:absolute;
+
+    right:3px;
+
+    top:3px;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+    
+    font-size: 16px;
+
+    border-radius:50%;
+
+    background:$clr-primary;
+
+    color:#fff;
+        display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+}
+
+
+.category-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:900px){
+
+    .category-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard-page{
+
+        padding:20px;
+
+    }
+
+    .dashboard-container{
+
+        padding:28px;
+
+    }
+
+    .user-hero h1{
+
+        font-size:28px;
+
+    }
+
+    .category-card{
+
+        min-height:140px;
+
+    }
+
+}

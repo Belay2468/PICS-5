@@ -1,0 +1,80 @@
+// ============================================================
+// _admin-users.scss
+// Page-specific styles for the User Management module
+// ============================================================
+
+// ---- User-table avatar (smaller than topbar version) --------
+.user-table-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: $clr-primary-light;
+  color: $clr-primary-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 11px;
+  flex-shrink: 0;
+  border: 2px solid $clr-primary-50;
+}
+
+// ---- User row: name+avatar flex cell -----------------------
+.user-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .name { font-weight: 600; font-size: 13.5px; }
+}
+
+// ---- Role badge variants (page-level overrides) -------------
+.badge-role-admin {
+  background: $clr-info-bg;
+  color: $clr-info;
+  font-weight: 700;
+}
+.badge-role-user {
+  background: $clr-bg;
+  color: $clr-muted;
+  font-weight: 600;
+}
+
+// ---- Stat cards: top border accent per metric ---------------
+.user-stat-card {
+  border-top: 3px solid transparent;
+
+  &.total-card   { border-color: $clr-info; }
+  &.active-card  { border-color: $clr-success; }
+  &.admin-card   { border-color: $clr-warning; }
+  &.inactive-card{ border-color: $clr-border; }
+}
+
+// ---- Add/Edit user modal: password field callout ------------
+.password-callout {
+  padding: 10px 12px;
+  background: $clr-primary-50;
+  border-left: 3px solid $clr-primary;
+  border-radius: 0 $radius-sm $radius-sm 0;
+  font-size: 12px;
+  color: $clr-primary-darker;
+  margin-top: 6px;
+}
+
+// ---- "You" indicator on current user's row -----------------
+.current-user-row td:first-child::after {
+  content: " (you)";
+  font-size: 10px;
+  color: $clr-primary;
+  font-weight: 700;
+}
+
+// ---- Filter bar: role + status select alignment -------------
+.users-filter-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  select { min-width: 140px; }
+}

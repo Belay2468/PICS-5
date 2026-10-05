@@ -1,0 +1,27 @@
+// ============================================================
+// _tabs.scss
+// ============================================================
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid $clr-border;
+  margin-bottom: 18px;
+
+  // Several tab labels together (e.g. "Pending Requests" / "Manual
+  // Issuance" / "Issuance History") don't fit a phone-width viewport —
+  // scroll the tab strip itself instead of overflowing the page.
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tab-link {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $clr-muted;
+  border-bottom: 2px solid transparent;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  &.active { color: $clr-primary-dark; border-color: $clr-primary; }
+  &:hover  { text-decoration: none; color: $clr-primary-dark; }
+}

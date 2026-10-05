@@ -1,0 +1,464 @@
+// ============================================================
+// _login.scss
+// ============================================================
+
+body.loginpage {
+    margin: 0;
+    background:
+        linear-gradient(rgba(255,255,255,.60), rgba(255,255,255,.60)),
+        url("../img/login-bg.png") center/cover no-repeat fixed;
+}
+
+.login-page {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    
+}
+
+.login-card {
+    width: 760px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 18px 45px rgba(0,0,0,.12);
+}
+
+.login-container {
+    display: flex;
+    
+}
+
+// ============================================================
+// LEFT PANEL
+// ============================================================
+
+.left {
+    width: 42%;
+    background: $clr-primary;
+
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 2rem;
+}
+
+.logo-badge {
+
+    width: 90px;
+    height: 90px;
+
+    margin-bottom: 1.25rem;
+
+    img{
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    }
+}
+
+.left h1{
+    font-size:1.7rem;
+    margin-bottom:.5rem;
+    letter-spacing:.5px;
+    
+}
+
+.subtitle{
+    font-size:.9rem;
+    line-height:1.7;
+    max-width:220px;
+    opacity:.9;
+}
+
+// ============================================================
+// RIGHT PANEL
+// ============================================================
+
+.right{
+    width:58%;
+    padding:2rem 2.3rem;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field label{
+    font-size:.9rem;
+    font-weight:bold;
+    color:#374151;
+    margin-bottom:.45rem;
+    
+}
+
+.field input{
+
+    height:45px;
+
+    border:1px solid #d1d5db;
+    border-radius:8px;
+
+    padding:0 .9rem;
+
+    transition:.25s;
+}
+
+.field input:focus{
+
+    outline:none;
+
+    border-color:#16a34a;
+
+    box-shadow:0 0 0 3px rgba(34,197,94,.15);
+}
+
+.login-row{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-size:.82rem;
+}
+
+.login-row label{
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+}
+
+.login-row a{
+    color:#16a34a;
+    font-weight:600;
+}
+
+// The Sign In button uses the shared .btn / .btn-primary / .btn-lg /
+// .btn-block classes (see components/_buttons.scss) instead of a
+// page-local override, so it gets the same shadow, hover-lift, and
+// press feedback as every other primary button in the system.
+
+
+
+.login-foot{
+
+    text-align:center;
+
+    padding:.5rem;
+
+    font-size:.78rem;
+
+    color:#6b7280;
+
+    border-top:1px solid #ececec;
+
+    background:#fafafa;
+    opacity: .6;
+}
+
+/* ==========================================================
+   Demo Modal
+========================================================== */
+
+.demo-link {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.demo-link a {
+    color: #16a34a;
+    font-size: .85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.demo-link a:hover {
+    color: #15803d;
+    text-decoration: underline;
+}
+
+.demo-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+}
+
+.demo-modal.show {
+    display: flex;
+}
+
+.demo-box {
+    width: 380px;
+    max-width: 92%;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    border-top: 5px solid #16a34a;
+    box-shadow: 0 20px 45px rgba(0,0,0,.22);
+    animation: demoPopup .22s ease;
+}
+
+.demo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.demo-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.demo-header button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    font-size: 20px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    line-height: 1;
+    padding: 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.demo-header button:hover {
+    background: #fee2e2;
+    color: #dc2626;
+    i{
+         color: #dc2626;
+    }
+}
+
+.demo-body {
+    padding: 16px;
+}
+
+/* ==========================================================
+   First Time Setup
+========================================================== */
+
+.setup-info {
+    background: #ecfdf5;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #16a34a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+}
+
+.setup-info h4 {
+    margin: 0 0 6px;
+    font-size: .95rem;
+    color: #16a34a;
+}
+
+.setup-info p {
+    margin: 0 0 8px;
+    font-size: .78rem;
+    color: #374151;
+}
+
+.setup-info ol {
+    margin: 0 0 0 18px;
+    padding: 0;
+    font-size: .76rem;
+    line-height: 1.6;
+}
+
+.setup-info code {
+    background: #fff;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/* ==========================================================
+   Accounts
+========================================================== */
+
+.account {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #16a34a;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.account h4 {
+    margin: 0 0 8px;
+    font-size: .92rem;
+    color: #16a34a;
+}
+
+.demo-group{
+    padding:12px 0;
+
+    &:not(:last-child){
+        border-bottom:1px solid #e5e7eb;
+        margin-bottom:10px;
+    }
+
+    h5{
+        margin:0 0 10px;
+        color:$clr-primary;
+        font-size:.9rem;
+    }
+}
+
+.demo-row{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+}
+
+.demo-row span{
+    font-size:.75rem;
+    font-weight:600;
+    color:#6b7280;
+}
+
+.demo-row code{
+    display:block;
+    background:#fff;
+    border:1px solid #d1d5db;
+    border-radius:6px;
+    padding:7px 10px;
+    font-size:.76rem;
+}
+
+.demo-note {
+    margin-top: 14px;
+    text-align: center;
+    font-size: .72rem;
+    color: #6b7280;
+}
+
+@keyframes demoPopup {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+// ============================================================
+// Responsive
+// ============================================================
+
+// Below tablet-portrait width, the fixed 760px two-column layout
+// no longer fits any real device — stack into a single centered card.
+@media (max-width: 860px) {
+
+    // .login-page already supplies outer padding; the template's
+    // generic .container was stacking a second layer of padding
+    // on top of it, over-squeezing the card on small viewports.
+    .login-page .container {
+        padding: 0;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .left {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .logo-badge {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 1rem;
+    }
+
+    .left h1 {
+        font-size: 1.4rem;
+    }
+
+    .subtitle {
+        max-width: 320px;
+    }
+
+    .right {
+        padding: 1.75rem;
+    }
+
+    // background-attachment:fixed is a common scroll-jank source on
+    // touch devices, and the stacked layout can grow taller than the
+    // viewport, so scrolling is more likely here than on desktop.
+    body.loginpage {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: $break-sm) {
+    .login-page {
+        padding: 16px;
+    }
+
+    .login-card {
+        border-radius: 14px;
+    }
+
+    .left {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .right {
+        padding: 1.5rem;
+    }
+}
+

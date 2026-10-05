@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="PICS logo">
+  <!-- Isometric box, rendered directly on the dark surface (no plate) -->
+  <polygon points="50,21 73,33.5 50,46 27,33.5" fill="#ffffff"/>
+  <polygon points="27,33.5 50,46 50,69 27,56.5" fill="#ffffff" fill-opacity=".82"/>
+  <polygon points="73,33.5 50,46 50,69 73,56.5" fill="#ffffff" fill-opacity=".64"/>
+
+  <!-- Verification badge -->
+  <circle cx="74" cy="70" r="15" fill="#ffffff"/>
+  <path d="M67.5 70.5 L72 75 L81 65.5" fill="none" stroke="#15803d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

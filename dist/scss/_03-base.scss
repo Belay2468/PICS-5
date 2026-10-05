@@ -1,0 +1,13 @@
+// ============================================================
+// Base
+// ============================================================
+html { font-size: 100%; }
+body {
+  font-family: $ff-primary;
+  font-size: $fs-base;
+  line-height: 1.5;
+  background: $clr-bg;
+  color: $clr-dark;
+}
+h1, h2, h3, h4 { margin: 0 0 4px; font-weight: 700; letter-spacing: -0.01em; }
+p { margin: 0 0 8px; }

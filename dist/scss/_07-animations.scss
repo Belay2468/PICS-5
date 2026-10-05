@@ -1,0 +1,38 @@
+// ============================================================
+// Shared animations — kept subtle and consistent across pages
+// ============================================================
+
+// Opacity-only: a translateY component here would leave a lingering
+// non-"none" transform on .content (animation-fill-mode: both keeps the
+// end keyframe applied), and any element with a transform becomes the
+// containing block for its position:fixed descendants — which breaks
+// every modal nested inside .content (they'd size/position against
+// .content's full scroll height instead of the viewport).
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: translateY(-12px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// Every admin/user page renders its body inside <main class="content">,
+// so animating it here gives every page the same soft entrance without
+// touching each template individually.
+.content {
+  animation: fadeIn .35s ease both;
+}
+
+// Respect users who've asked the OS to minimize motion.
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    animation: none;
+  }
+}

@@ -1,0 +1,107 @@
+// ============================================================
+// _user-search.scss
+// Page-specific styles for the keyword search results page
+// ============================================================
+
+// ---- Inline search form (overrides the hero .user-search) ---
+// On this page the search bar lives inside user-content,
+// not inside a full-height hero, so it needs its own treatment.
+.search-inline-form {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: $clr-surface;
+  border: 1px solid $clr-border;
+  border-radius: 999px;
+  box-shadow: $shadow-sm;
+  padding: 6px 6px 6px 20px;
+  margin-bottom: 24px;
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 14.5px;
+    color: $clr-dark;
+    min-width: 0;
+
+    &::placeholder { color: $clr-faint; }
+    &:focus         { outline: none; }
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $clr-primary;
+    color: $clr-light;
+    border: none;
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: background .15s;
+
+    &:hover { background: $clr-primary-dark; }
+  }
+}
+
+// ---- Results count heading ----------------------------------
+.results-heading {
+  font-size: 14.5px;
+  color: $clr-muted;
+  margin-bottom: 16px;
+
+  strong { color: $clr-dark; font-weight: 700; }
+
+  // Keyword highlight pill
+  .kw-pill {
+    display: inline-block;
+    background: $clr-primary-light;
+    color: $clr-primary-darker;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+}
+
+// ---- Item card: category breadcrumb label ------------------
+// (search results show "IT Supplies · IT-002" under the name)
+.item-card .category-crumb {
+  font-size: 11px;
+  color: $clr-faint;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .cat-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: $clr-primary;
+    display: inline-block;
+  }
+}
+
+// ---- Item card hover lift (same as category page) ----------
+.item-card {
+  transition: box-shadow .2s ease, transform .2s ease;
+  &:hover { box-shadow: $shadow-md; transform: translateY(-2px); }
+}
+
+// ---- Empty query state (no input yet) ----------------------
+.search-prompt {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 20px;
+  color: $clr-faint;
+  font-size: 14px;
+
+  .prompt-icon { font-size: 44px; margin-bottom: 12px; }
+}
+
+// ---- Results count heading — matches the compact sub-page-title
+// size already established on the My Requests page, rather than
+// falling back to an unstyled browser default.
+.search-results-heading { font-size: 16px; margin-bottom: 14px; }

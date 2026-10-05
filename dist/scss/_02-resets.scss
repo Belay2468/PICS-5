@@ -1,0 +1,12 @@
+// ============================================================
+// Resets
+// ============================================================
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+* { margin: 0; padding: 0; }
+ul, li { list-style: none; }
+a { color: $clr-primary-dark; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea { font-family: inherit; font-size: inherit; }
+:focus-visible { outline: 2px solid $clr-primary; outline-offset: 2px; }

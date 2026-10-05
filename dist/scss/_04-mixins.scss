@@ -1,0 +1,49 @@
+// ============================================================
+// Mixins
+// ============================================================
+
+// --- Template mixins (kept from original) ---
+@mixin mediaQuery($width: $break-sm) {
+  @media screen and (min-width: $width) { @content; }
+}
+@mixin gridEven($cols: 1, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
+@mixin gridUneven($cols, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: $cols;
+  gap: $gap;
+}
+@mixin centerAll() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// --- PhilTrack-specific mixins ---
+@mixin card {
+  background: $clr-surface;
+  border: 1px solid $clr-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+}
+@mixin badge($fg, $bg) {
+  background: $bg;
+  color: $fg;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,116 @@
+// ============================================================
+// _table.scss
+// ============================================================
+.table-wrap { overflow-x: auto; }
+
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  th {
+    text-align: center;
+    padding: 10px 14px;
+    background: $clr-bg;
+    color: $clr-muted;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    border-bottom: 1px solid $clr-border;
+    white-space: nowrap;
+  }
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid $clr-border;
+    vertical-align: middle;
+    text-align: center;
+
+    // Block-level flex content (e.g. avatar+name, action buttons) doesn't
+    // respond to the cell's text-align, so center its contents directly.
+    .flex, .row-actions { justify-content: center; }
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td      { background: $clr-primary-50; }
+}
+
+.row-actions { display: inline-flex; gap: 6px; }
+
+// Shared empty-state pattern — used inside table bodies (wrapped in a
+// <tr><td>) and inside plain panels alike, so every "nothing here yet"
+// moment in the app looks the same instead of some getting an icon and
+// message while others are unstyled or plain text.
+.table-empty-state {
+  text-align: center;
+  padding: 52px 20px;
+  color: $clr-faint;
+
+  .empty-icon { font-size: 48px; margin-bottom: 14px; color: $clr-faint; }
+  p { font-size: 13.5px; max-width: 320px; margin: 0 auto; }
+  a { color: $clr-primary; font-weight: 600; }
+
+  // Positive "all clear" variant — same shape, but green, for states
+  // like "all items sufficiently stocked" where empty is a good thing
+  // rather than neutral absence of data.
+  &.is-positive {
+    color: $clr-success;
+    .empty-icon { color: $clr-success; }
+    p { color: $clr-muted; }
+  }
+
+  // For use inside a CSS grid (e.g. .item-grid) where the empty state
+  // needs to span every column instead of sitting in just one cell.
+  &.grid-span-full { grid-column: 1 / -1; }
+}
+
+// ---- Filter bar ---------------------------------------------
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-direction: row;
+  padding: 16px 20px;
+  margin-bottom: 22px;
+
+  background: $clr-surface;
+  border: 1px solid $clr-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+
+  flex-wrap: wrap;
+
+  .search-grow {
+    flex: 1;
+    min-width: 220px;
+    max-width: none;
+  }
+
+  .form-control {
+    width: 180px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+
+  .btn {
+    height: 42px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+// flex-wrap:wrap alone leaves the select/button ragged on narrow
+// screens — stack everything full-width below the point where the
+// search field, category select and button no longer fit comfortably.
+@media (max-width: 600px) {
+  .filter-bar {
+    .search-grow { min-width: 100%; }
+    .form-control,
+    .btn { width: 100%; }
+  }
+}
